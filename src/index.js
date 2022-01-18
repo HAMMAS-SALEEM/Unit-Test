@@ -9,7 +9,8 @@ import {
 } from './CRUD.js';
 
 const todoContainer = document.querySelector('.todos-container');
-const addBtn = document.querySelector('.fa-plus');
+const form = document.getElementById('inputForm')
+const addBtn = document.getElementById('addBtn');
 const input = document.querySelector('.toDoName');
 const locStorage = JSON.parse(localStorage.getItem('todos'));
 const clearCompleted = document.querySelector('.clear-completed');
@@ -25,7 +26,8 @@ window.addEventListener('load', () => {
   displayToDos(arr, todoContainer);
 });
 
-addBtn.addEventListener('click', () => {
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
   if (input.value === '' || input.value === null) {
     alert('Please insert a todo');
   } else {
